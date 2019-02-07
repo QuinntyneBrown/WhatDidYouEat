@@ -10,6 +10,7 @@ namespace WhatDidYouEat.Infrastructure
         public DbSet<MenuItem> MenuItems { get; private set; }
         public DbSet<MenuType> MenuTypes { get; private set; }
         public DbSet<ScheduledMenu> ScheduledMenus { get; private set; }
+        public DbSet<User> Users { get; private set; }
         public AppDbContext(DbContextOptions options)
             : base(options) { }
     }

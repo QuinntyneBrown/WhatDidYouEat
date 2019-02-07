@@ -11,6 +11,7 @@ namespace WhatDidYouEat.Core.Interfaces
         DbSet<MenuItem> MenuItems { get; }
         DbSet<ScheduledMenu> ScheduledMenus { get; }
         DbSet<MenuType> MenuTypes { get; }
+        DbSet<User> Users { get; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

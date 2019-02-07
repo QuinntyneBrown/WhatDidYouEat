@@ -29,9 +29,8 @@ namespace WhatDidYouEat.Api.Features.ScheduledMenus
                 return new Response()
                 {
                     ScheduledMenu = (await _context.ScheduledMenus
-                                   .Include(x => x.MenuItems)
-                                   .Include("MenuItems.MenuType")
-                                   .Include("MenuItems.Food")
+                                   .Include(x => x.MenuItems).ThenInclude(x => x.Food)
+                                   .Include(x => x.MenuItems).ThenInclude(x => x.MenuType)
                                    .SingleAsync(x => x.Date == request.Date)).ToDto()
                 };
             }

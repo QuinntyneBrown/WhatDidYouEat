@@ -27,7 +27,9 @@ namespace WhatDidYouEat.Api.Features.MenuItems
             public async Task<Response> Handle(Request request, CancellationToken cancellationToken)
                 =>  new Response()
                 {
-                    MenuItems = await _context.MenuItems.Select(x => x.ToDto()).ToArrayAsync()
+                    MenuItems = await _context.MenuItems
+                    .Include(x => x.Food)
+                    .Select(x => x.ToDto()).ToArrayAsync()
                 };
         }
     }

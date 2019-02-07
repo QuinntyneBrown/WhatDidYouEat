@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Threading.Tasks;
+using WhatDidYouEat.Core.Identity;
 
 namespace WhatDidYouEat.Api
 {
@@ -41,6 +42,10 @@ namespace WhatDidYouEat.Api
             services.AddScoped<IAppDbContext, AppDbContext>();
 
             services.AddHttpContextAccessor();
+
+            services.AddSingleton<IPasswordHasher, PasswordHasher>();
+
+            services.AddSingleton<ISecurityTokenFactory, SecurityTokenFactory>();
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
