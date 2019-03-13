@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  whatdidyoueat.api:
+    image: ${DOCKER_REGISTRY-}whatdidyoueatapi
+    build:
+      context: .
+      dockerfile: src\WhatDidYouEat.API\Dockerfile
